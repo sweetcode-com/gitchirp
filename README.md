@@ -19,11 +19,11 @@ Check if a GitHub repo subfolder was updated recently and post all new commits t
 
     `cp .env.example .env`
 
-4. set the .env values
-
-5. Create a Slack app
+4. Create a Slack app
 
     https://api.slack.com/
+
+5. set the .env values
 
 
 6. Create a cron job to run the script
