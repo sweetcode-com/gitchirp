@@ -1,0 +1,29 @@
+{
+    "name": "sweetcode/doc-monitor",
+    "description": "Notify when changes have been done in the sweetcode.com doc folder",
+    "require": {
+        "knplabs/github-api": "^3.0",
+        "symfony/http-client": "^6.3",
+        "nyholm/psr7": "^1.8",
+        "vlucas/phpdotenv": "^5.5",
+        "guzzlehttp/guzzle": "^7.8",
+        "http-interop/http-factory-guzzle": "^1.0",
+        "nesbot/carbon": "^2.69"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sweetcode\\DocMonitor\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Aleksandar",
+            "email": "aleksandar@sweetcode.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true
+        }
+    }
+}
