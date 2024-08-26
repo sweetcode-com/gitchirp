@@ -71,7 +71,7 @@ try {
             ],
             'json' => [
                 'channel'         => $channel, // Replace with your Slack channel ID
-                'text'            => "There are $commitCount commits in the last week for $repo/$subfolder. Please update the <{$wc_com_edit_url}|wc.com> docs and follow these <{$wc_rules_url}|rules>:",
+                'text'            => "(gitchirp app) There are $commitCount commits in the last week for $repo/$subfolder. Please update the <{$wc_com_edit_url}|wc.com> docs and follow these <{$wc_rules_url}|rules>:",
                 'reply_broadcast' => true,
                 'icon_emoji'      => $icon_emojy,
             ]
