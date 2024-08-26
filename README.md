@@ -42,6 +42,8 @@ This script will check if the documentation folder was updated recently and post
 
     `0 3 * * 1 /usr/bin/php /path/to/gitchirp/app.php`
 
+    Currently hosted at https://admin.hostpoint.ch/
+
 
 
 
