@@ -3,6 +3,19 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use Carbon\Carbon;
 
+/* -------------------------------------------------------------------------- */
+/*                                Set few constants                           */
+/* -------------------------------------------------------------------------- */
+
+$doc_maintainers = [
+    '@Leeberty' => '<@U040HKMTUJV>',
+    '@Jerry' => '<@U065K892GLF>',
+];
+
+/* -------------------------------------------------------------------------- */
+/*                                Load .env file                              */
+/* -------------------------------------------------------------------------- */
+
 // load .env file which is located in the same directory as this file
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -29,11 +42,12 @@ $guzzleClient = new \GuzzleHttp\Client();
 
 // Calculate the date one week ago
 $dateLastWeek = Carbon::now()->subWeek()->toIso8601String();
+// $dateFourWeeksAgo = Carbon::now()->subWeeks(4)->toIso8601String();
+
 
 // echo "Getting commits since $dateLastWeek\n";
 
 try {
-
 
     $response = $guzzleClient->get("https://api.github.com/repos/$repo/commits", [
         'headers' => [
@@ -71,7 +85,7 @@ try {
             ],
             'json' => [
                 'channel'         => $channel, // Replace with your Slack channel ID
-                'text'            => "(gitchirp app) There are $commitCount commits in the last week for $repo/$subfolder. Please update the <{$wc_com_edit_url}|wc.com> docs and follow these <{$wc_rules_url}|rules>:",
+                'text'            => "(gitchirp app) " . get_list_of_maintainers($doc_maintainers) .  " There are $commitCount commits in the last week for $repo/$subfolder. Please update the <{$wc_com_edit_url}|wc.com> docs and follow these <{$wc_rules_url}|rules>:",
                 'reply_broadcast' => true,
                 'icon_emoji'      => $icon_emojy,
             ]
@@ -100,4 +114,9 @@ try {
 } catch (Exception $e) {
     // Handle exceptions
     echo 'Caught exception: ',  $e->getMessage(), "\n";
+}
+
+function get_list_of_maintainers($doc_maintainers)
+{
+    return implode(' ', array_values($doc_maintainers));
 }
