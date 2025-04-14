@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 $doc_maintainers = [
     '@Leeberty' => '<@U040HKMTUJV>',
-    '@Clint' => '<@U01G24Q8VGE>',
+    '@Clint' => '<@U065K892GLF>',
 ];
 
 /* -------------------------------------------------------------------------- */
