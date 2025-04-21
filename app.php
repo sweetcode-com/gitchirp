@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 $doc_maintainers = [
     '@Leeberty' => '<@U040HKMTUJV>',
-    '@Clint' => '<@U065K892GLF>',
+    '@Clint' => '<@U01G24Q8VGE>',
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -85,7 +85,7 @@ try {
             ],
             'json' => [
                 'channel'         => $channel, // Replace with your Slack channel ID
-                'text'            => "(gitchirp app) " . get_list_of_maintainers($doc_maintainers) .  " There are $commitCount commits in the last week for $repo/$subfolder. Please update the <{$wc_com_edit_url}|wc.com> docs and follow these <{$wc_rules_url}|rules>:",
+                'text'            => "(gitchirp app) ". get_list_of_maintainers($doc_maintainers) .  " There are $commitCount commits in the last week for $repo/$subfolder. Please update the <{$wc_com_edit_url}|wc.com> docs and follow these <{$wc_rules_url}|rules>:",
                 'reply_broadcast' => true,
                 'icon_emoji'      => $icon_emojy,
             ]
